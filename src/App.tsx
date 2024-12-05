@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SideBar from './components/SideBar';
+import styled from 'styled-components';
+import Control from './components/Control';
+import Edit from './components/Edit';
 
-function App() {
+const MainContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`;
+
+const EditingContainer = styled.div`
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+`;
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <MainContainer>
+      <SideBar></SideBar>
+      <EditingContainer>  
+        <Control></Control>
+        <Edit></Edit>
+      </EditingContainer>
+    </MainContainer>
+  )
+};
 
 export default App;
